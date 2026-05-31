@@ -22,7 +22,10 @@ This is a small Retrieval-Augmented Generation project that lets you upload PDF 
 Prerequisites: Docker, Python 3.10+, and Node.js if you run Inngest locally.
 
 1. Create .env file
-   GOOGLE_API_KEY =
+
+```bash
+GOOGLE_API_KEY =
+```
 
 2. Create a virtual environment and install dependencies (examples):
 
