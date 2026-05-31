@@ -21,7 +21,10 @@ This is a small Retrieval-Augmented Generation project that lets you upload PDF 
 
 Prerequisites: Docker, Python 3.10+, and Node.js if you run Inngest locally.
 
-1. Create a virtual environment and install dependencies (examples):
+1. Create .env file
+   GOOGLE_API_KEY =
+
+2. Create a virtual environment and install dependencies (examples):
 
 ```bash
 python -m venv .venv
@@ -29,25 +32,25 @@ source .venv/bin/activate
 uv sync
 ```
 
-2. Start Qdrant (data persisted to `qdrant_storage`):
+3. Start Qdrant (data persisted to `qdrant_storage`)(Run docker first):
 
 ```bash
 docker run -d --name qdrantRagDb -p 6333:6333 -v "./qdrant_storage:/qdrant/storage" qdrant/qdrant
 ```
 
-3. Start Inngest dev server for observability:
+4. Start Inngest dev server for observability:
 
 ```bash
 npx inngest-cli@latest dev -u http://127.0.0.1:8000/api/inngest --no-discovery
 ```
 
-4. Run the backend API:
+5. Run the backend API:
 
 ```bash
 uv run uvicorn main:app --reload
 ```
 
-5. Start the Streamlit UI (default port 8501):
+6. Start the Streamlit UI (default port 8501):
 
 ```bash
 uv run streamlit run streamlit_app.py
